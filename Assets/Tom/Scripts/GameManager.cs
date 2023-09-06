@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
         get => _instance;
     }
 
+    public event Action GetScores;
+
     #region Controller events
     public event Action OnWheelUp;
     public event Action OnWheelDown;
@@ -41,6 +43,13 @@ public class GameManager : MonoBehaviour
     public event Action OnD2Pressed;
     public event Action OnD3Pressed;
     #endregion
+
+    [Header("Game Variables")]
+
+    [SerializeField]
+    private int m_scorePerOrgan;
+
+    [Header("Controller values")]
 
     #region Controller values
     [SerializeField]
@@ -117,6 +126,8 @@ public class GameManager : MonoBehaviour
         }
 
         _instance = this;
+
+        DontDestroyOnLoad(this);
     }
 
     public void OnLose()
@@ -127,7 +138,13 @@ public class GameManager : MonoBehaviour
 
     void OnLevelFinish()
     {
+        GetScores?.Invoke();
+        Debug.Log("Final score is : " + _score);
+    }
 
+    public void AddScore(float value)
+    {
+        _score += Mathf.RoundToInt(value * m_scorePerOrgan);
     }
 
     public void Update()
@@ -195,6 +212,11 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H))
         {
             OnD3Pressed?.Invoke();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            OnLevelFinish();
         }
     }
 }
