@@ -8,8 +8,6 @@ public class GameManager : MonoBehaviour
 {
     #region Variables
 
-    
-
     private PlayerActions _playerActions;
     public ref PlayerActions PlayerActions
     {
@@ -17,6 +15,8 @@ public class GameManager : MonoBehaviour
     }
 
     private int _score;
+
+    private bool _hasLost = false;
 
     private static GameManager _instance;
     public static GameManager Instance
@@ -119,6 +119,12 @@ public class GameManager : MonoBehaviour
         _instance = this;
     }
 
+    public void OnLose()
+    {
+        Debug.Log("You Lose");
+        _hasLost = true;
+    }
+
     void OnLevelFinish()
     {
 
@@ -126,6 +132,11 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+        if (_hasLost)
+        {
+            return;
+        }
+        
         if (Input.GetKey(KeyCode.A))
         {
             OnWheelUp?.Invoke();

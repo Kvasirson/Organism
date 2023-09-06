@@ -115,12 +115,31 @@ public class Organ : MonoBehaviour
         _fillMaterial.SetFloat("_FillAmount", m_value);
     }
 
+    private void LoseCheck()
+    {
+        if (m_value >= 1)
+        {
+            m_value = 1;
+            _gameManager.OnLose();
+
+            return;
+        }
+
+        if(m_value <= 0)
+        {
+            m_value = 0;
+            _gameManager.OnLose();
+
+            return;
+        }
+
+    }
+
     private void OnLeftThrusterUp()
     {
         m_value += _leftThrusterAddValue;
 
-        m_value = m_value > 1 ? 1 : m_value;
-        m_value = m_value < 0 ? 0 : m_value;
+        LoseCheck();
 
         _fillMaterial.SetFloat("_FillAmount", m_value);
     }
@@ -129,8 +148,7 @@ public class Organ : MonoBehaviour
     {
         m_value -= _leftThrusterAddValue;
 
-        m_value = m_value > 1 ? 1 : m_value;
-        m_value = m_value < 0 ? 0 : m_value;
+        LoseCheck();
 
         _fillMaterial.SetFloat("_FillAmount", m_value);
     }
@@ -139,8 +157,7 @@ public class Organ : MonoBehaviour
     {
         m_value += _rightThrusterAddValue;
 
-        m_value = m_value > 1 ? 1 : m_value;
-        m_value = m_value < 0 ? 0 : m_value;
+        LoseCheck();
 
         _fillMaterial.SetFloat("_FillAmount", m_value);
     }
@@ -149,8 +166,7 @@ public class Organ : MonoBehaviour
     {
         m_value -= _rightThrusterAddValue;
 
-        m_value = m_value > 1 ? 1 : m_value;
-        m_value = m_value < 0 ? 0 : m_value;
+        LoseCheck();
 
         _fillMaterial.SetFloat("_FillAmount", m_value);
     }
@@ -159,8 +175,7 @@ public class Organ : MonoBehaviour
     {
         m_value += _U1AddValue;
 
-        m_value = m_value > 1 ? 1 : m_value;
-        m_value = m_value < 0 ? 0 : m_value;
+        LoseCheck();
 
         _fillMaterial.SetFloat("_FillAmount", m_value);
     }
@@ -169,8 +184,7 @@ public class Organ : MonoBehaviour
     {
         m_value += _U2AddValue;
 
-        m_value = m_value > 1 ? 1 : m_value;
-        m_value = m_value < 0 ? 0 : m_value;
+        LoseCheck();
 
         _fillMaterial.SetFloat("_FillAmount", m_value);
     }
@@ -179,8 +193,7 @@ public class Organ : MonoBehaviour
     {
         m_value += _U3AddValue;
 
-        m_value = m_value > 1 ? 1 : m_value;
-        m_value = m_value < 0 ? 0 : m_value;
+        LoseCheck();
 
         _fillMaterial.SetFloat("_FillAmount", m_value);
     }
@@ -189,8 +202,7 @@ public class Organ : MonoBehaviour
     {
         m_value += _D1AddValue;
 
-        m_value = m_value > 1 ? 1 : m_value;
-        m_value = m_value < 0 ? 0 : m_value;
+        LoseCheck();
 
         _fillMaterial.SetFloat("_FillAmount", m_value);
     }
@@ -199,8 +211,7 @@ public class Organ : MonoBehaviour
     {
         m_value += _D2AddValue;
 
-        m_value = m_value > 1 ? 1 : m_value;
-        m_value = m_value < 0 ? 0 : m_value;
+        LoseCheck();
 
         _fillMaterial.SetFloat("_FillAmount", m_value);
     }
@@ -209,8 +220,7 @@ public class Organ : MonoBehaviour
     {
         m_value += _D3AddValue;
 
-        m_value = m_value > 1 ? 1 : m_value;
-        m_value = m_value < 0 ? 0 : m_value;
+        LoseCheck();
 
         _fillMaterial.SetFloat("_FillAmount", m_value);
     }
