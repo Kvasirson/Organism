@@ -52,6 +52,9 @@ public class GameManager : MonoBehaviour
     private int m_scorePerOrgan;
 
     [SerializeField]
+    private AnimationCurve m_scoreCurve;
+
+    [SerializeField]
     private float m_gameTime;
 
     [Header("Controller values")]
@@ -147,11 +150,16 @@ public class GameManager : MonoBehaviour
         while(curTimer > 0)
         {
             curTimer -= Time.deltaTime;
-            Debug.Log("Time : " + curTimer);
+            //Debug.Log("Time : " + curTimer);
             yield return new WaitForSeconds(Time.deltaTime);
         }
 
         EndGame();
+    }
+
+    public int GetScore()
+    {
+        return _score;
     }
 
     public void OnLose()
@@ -171,18 +179,23 @@ public class GameManager : MonoBehaviour
         int prevScore = _score;
         GetScores?.Invoke();
         Debug.Log("Level score is : " + (_score - prevScore));
+        LevelLoader.Instance.LoadNextLevel();
     }
 
-    void EndGame()
+    public void EndGame()
     {
         _hasLost = true;
+        if (_curTimer != null)
+        {
+            StopCoroutine(_curTimer);
+        }
         GetScores?.Invoke();
         Debug.Log("Final score is : " + _score);
     }
 
     public void AddScore(float value)
     {
-        _score += Mathf.RoundToInt(value * m_scorePerOrgan);
+        _score += Mathf.RoundToInt(m_scoreCurve.Evaluate(value) * m_scorePerOrgan);
     }
 
     public void Update()
@@ -191,33 +204,33 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
-        
-        if (Input.GetKey(KeyCode.A))
+
+        if (Input.GetAxis("Mouse X") > 0)
         {
             OnWheelUp?.Invoke();
         }
 
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetAxis("Mouse X") < 0)
         {
             OnWheelDown?.Invoke();
         }
 
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.J))
         {
             OnLeftThrusterUp?.Invoke();
         }
 
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKey(KeyCode.V))
         {
             OnLeftThrusterDown?.Invoke();
         }
 
-        if (Input.GetKey(KeyCode.T))
+        if (Input.GetKey(KeyCode.L))
         {
             OnRightThrusterUp?.Invoke();
         }
 
-        if (Input.GetKey(KeyCode.Y))
+        if (Input.GetKey(KeyCode.Minus))
         {
             OnRightThrusterDown?.Invoke();
         }
@@ -227,32 +240,27 @@ public class GameManager : MonoBehaviour
             OnU1Pressed?.Invoke();
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             OnU2Pressed?.Invoke();
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.G))
         {
             OnU3Pressed?.Invoke();
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.S))
         {
             OnD1Pressed?.Invoke();
         }
 
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             OnD2Pressed?.Invoke();
         }
 
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            OnD3Pressed?.Invoke();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.D))
         {
             OnLevelFinish();
         }
