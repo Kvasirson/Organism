@@ -63,12 +63,14 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
+    - _BigBubblesSize: 1
+    - _BigBubblesSpeed: 1
     - _BubblesSpeed: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _FillAmount: 0.434
+    - _FillAmount: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -79,6 +81,8 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _TinyBubblesSize: 1
+    - _TinyBubblesSpeed: 1
     - _UVSec: 0
     - _WaveAmmount: 1
     - _WaveSize: 0.05
