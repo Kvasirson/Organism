@@ -15,5 +15,4 @@ public enum ControllerType
     ButtonU3,
     ButtonD1,
     ButtonD2,
-    ButtonD3,
 }

@@ -1,23 +1,61 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-
-
-    public void LoadNextLevel()
+    private static LevelLoader _instance;
+    public static LevelLoader Instance
     {
-        int currentSceneIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
-        UnityEngine.SceneManagement.SceneManager.LoadScene(currentSceneIndex + 1);
+        get => _instance;
     }
 
-    public void Update()
+    private void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (_instance != null)
         {
-            LoadNextLevel();
+            Destroy(this);
+        }
+
+        _instance = this;
+
+        DontDestroyOnLoad(this);
+    }
+
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene(0);
+        if (GameManager.Instance != null)
+        {
+            Destroy(GameManager.Instance);
         }
     }
 
+    public void LoadScoreBoard()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void LoadFirstLevel()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void LoadNextLevel()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if(SceneManager.sceneCountInBuildSettings > currentSceneIndex)
+        {
+            SceneManager.LoadScene(currentSceneIndex + 1);
+        }
+        else
+        {
+            Debug.LogWarning("last level");
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.EndGame();
+            }
+        }
+    }
 }
