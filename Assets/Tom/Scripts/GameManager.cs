@@ -8,8 +8,6 @@ public class GameManager : MonoBehaviour
 {
     #region Variables
 
-    
-
     private PlayerActions _playerActions;
     public ref PlayerActions PlayerActions
     {
@@ -18,11 +16,15 @@ public class GameManager : MonoBehaviour
 
     private int _score;
 
+    private bool _hasLost = false;
+
     private static GameManager _instance;
     public static GameManager Instance
     {
         get => _instance;
     }
+
+    public event Action GetScores;
 
     #region Controller events
     public event Action OnWheelUp;
@@ -41,6 +43,16 @@ public class GameManager : MonoBehaviour
     public event Action OnD2Pressed;
     public event Action OnD3Pressed;
     #endregion
+
+    [Header("Game Variables")]
+
+    [SerializeField]
+    private int m_scorePerOrgan;
+
+    [SerializeField]
+    private float m_gameTime;
+
+    [Header("Controller values")]
 
     #region Controller values
     [SerializeField]
@@ -117,15 +129,63 @@ public class GameManager : MonoBehaviour
         }
 
         _instance = this;
+
+        DontDestroyOnLoad(this);
+    }
+
+    private void Start()
+    {
+        StartCoroutine(Timer());
+    }
+
+    IEnumerator Timer()
+    {
+        float curTimer = m_gameTime;
+
+        while(curTimer > 0)
+        {
+            curTimer -= Time.deltaTime;
+            Debug.Log("Time : " + curTimer);
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+
+        EndGame();
+    }
+
+    public void OnLose()
+    {
+        Debug.Log("You Lose");
+        _hasLost = true;
+        GetScores?.Invoke();
+        Debug.Log("Final score is : " + _score);
     }
 
     void OnLevelFinish()
     {
+        int prevScore = _score;
+        GetScores?.Invoke();
+        Debug.Log("Level score is : " + (_score - prevScore));
+    }
 
+    void EndGame()
+    {
+        _hasLost = true;
+        GetScores?.Invoke();
+        Debug.Log("Final score is : " + _score);
+    }
+
+    public void AddScore(float value)
+    {
+        _score += Mathf.RoundToInt(value * m_scorePerOrgan);
     }
 
     public void Update()
     {
+        if (_hasLost)
+        {
+            return;
+        }
+        
         if (Input.GetKey(KeyCode.A))
         {
             OnWheelUp?.Invoke();
@@ -184,6 +244,11 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H))
         {
             OnD3Pressed?.Invoke();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            OnLevelFinish();
         }
     }
 }

@@ -213,13 +213,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27b5e1c0a2cd4e8439d6c4f317064cce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_value: 0
-  m_fillRenderer: {fileID: 8176505523115108468}
+  m_value: 0.5
   m_controllers:
   - m_controller: 0
     m_multiplier: 1
   - m_controller: 1
     m_multiplier: 0.5
+  m_fillRenderer: {fileID: 8176505523115108468}
 --- !u!1 &5562320460425578630
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +313,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 266989700359344083}
+  - component: {fileID: 8825014178468093376}
   m_Layer: 0
   m_Name: Visuals
   m_TagString: Untagged
@@ -338,3 +339,15 @@ Transform:
   - {fileID: 459048192265342289}
   m_Father: {fileID: 3775547305782947138}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &8825014178468093376
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8758676588387613117}
+  m_Enabled: 1
+  m_SortingLayerID: -1945224503
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
