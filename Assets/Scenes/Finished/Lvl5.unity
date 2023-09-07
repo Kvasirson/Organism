@@ -187,6 +187,22 @@ PrefabInstance:
       propertyPath: m_controllers.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[0].m_controller
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[0].m_multiplier
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[1].m_controller
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[1].m_multiplier
+      value: -0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -350,7 +366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_value
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_fillRenderer
@@ -358,7 +374,31 @@ PrefabInstance:
       objectReference: {fileID: 820624717}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[0].m_controller
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[0].m_multiplier
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[1].m_controller
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[1].m_multiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[2].m_controller
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[2].m_multiplier
+      value: -0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -526,6 +566,22 @@ PrefabInstance:
       propertyPath: m_controllers.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[0].m_controller
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[0].m_multiplier
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[1].m_controller
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[1].m_multiplier
+      value: -0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -598,23 +654,39 @@ PrefabInstance:
       objectReference: {fileID: 1475915629}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.data[0].m_controller
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
-      propertyPath: m_controllers.Array.data[0].m_multiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
-      propertyPath: m_controllers.Array.data[1].m_controller
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[0].m_multiplier
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[1].m_controller
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.data[1].m_multiplier
-      value: 1
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[2].m_controller
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[2].m_multiplier
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[3].m_controller
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[3].m_multiplier
+      value: -0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -774,11 +846,15 @@ PrefabInstance:
       objectReference: {fileID: 269741876}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.size
-      value: 2
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[0].m_controller
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.data[0].m_multiplier
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.data[1].m_controller
@@ -786,7 +862,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.data[1].m_multiplier
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[2].m_controller
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[2].m_multiplier
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[3].m_controller
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[3].m_multiplier
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[4].m_controller
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[4].m_multiplier
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
