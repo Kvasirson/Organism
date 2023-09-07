@@ -358,7 +358,7 @@ PrefabInstance:
       objectReference: {fileID: 820624717}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.data[0].m_multiplier
@@ -370,6 +370,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.data[1].m_multiplier
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[2].m_controller
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[2].m_multiplier
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[3].m_controller
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[3].m_multiplier
       value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -610,14 +626,22 @@ PrefabInstance:
       objectReference: {fileID: 1475915629}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.data[0].m_controller
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.data[0].m_multiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[1].m_controller
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[1].m_multiplier
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -675,9 +699,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c5b236166255cd41976b721e51027c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_wheelStepValue: 0.001
-  m_leftThrusterStepValue: 0.001
-  m_rightThrusterStepValue: 0.001
+  m_scorePerOrgan: 0
+  m_gameTime: 120
+  m_wheelStepValue: 1
+  m_leftThrusterStepValue: 1
+  m_rightThrusterStepValue: 1
   m_U1SteppValue: 0.1
   m_U2SteppValue: 0.1
   m_U3SteppValue: 0.1
@@ -776,10 +802,18 @@ PrefabInstance:
       objectReference: {fileID: 269741876}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.data[0].m_multiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[1].m_controller
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[1].m_multiplier
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
