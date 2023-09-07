@@ -52,6 +52,9 @@ public class GameManager : MonoBehaviour
     private int m_scorePerOrgan;
 
     [SerializeField]
+    private AnimationCurve m_scoreCurve;
+
+    [SerializeField]
     private float m_gameTime;
 
     [Header("Controller values")]
@@ -171,18 +174,23 @@ public class GameManager : MonoBehaviour
         int prevScore = _score;
         GetScores?.Invoke();
         Debug.Log("Level score is : " + (_score - prevScore));
+        LevelLoader.Instance.LoadNextLevel();
     }
 
-    void EndGame()
+    public void EndGame()
     {
         _hasLost = true;
+        if (_curTimer != null)
+        {
+            StopCoroutine(_curTimer);
+        }
         GetScores?.Invoke();
         Debug.Log("Final score is : " + _score);
     }
 
     public void AddScore(float value)
     {
-        _score += Mathf.RoundToInt(value * m_scorePerOrgan);
+        _score += Mathf.RoundToInt(m_scoreCurve.Evaluate(value) * m_scorePerOrgan);
     }
 
     public void Update()
@@ -248,11 +256,6 @@ public class GameManager : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.H))
-        {
-            OnD3Pressed?.Invoke();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
         {
             OnLevelFinish();
         }

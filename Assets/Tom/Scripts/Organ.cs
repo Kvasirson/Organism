@@ -108,11 +108,6 @@ public class Organ : MonoBehaviour
                     _gameManager.OnD2Pressed += OnButtonD2;
                     _D2AddValue = controller.Multiplier * _gameManager.D2StepValue;
                     break;
-
-                case ControllerType.ButtonD3:
-                    _gameManager.OnD3Pressed += OnButtonD3;
-                    _D3AddValue = controller.Multiplier * _gameManager.D3StepValue;
-                    break;
             }
         }
     }
@@ -240,15 +235,6 @@ public class Organ : MonoBehaviour
         _fillMaterial.SetFloat("_FillAmount", m_value);
     }
 
-    private void OnButtonD3()
-    {
-        m_value += _D3AddValue;
-
-        LoseCheck();
-
-        _fillMaterial.SetFloat("_FillAmount", m_value);
-    }
-
     private void OnDestroy()
     {
         foreach (OrganController controller in m_controllers)
@@ -308,11 +294,6 @@ public class Organ : MonoBehaviour
                 case ControllerType.ButtonD2:
                     _gameManager.OnD2Pressed -= OnButtonD2;
                     _D2AddValue = controller.Multiplier * _gameManager.D2StepValue;
-                    break;
-
-                case ControllerType.ButtonD3:
-                    _gameManager.OnD3Pressed -= OnButtonD3;
-                    _D3AddValue = controller.Multiplier * _gameManager.D3StepValue;
                     break;
             }
         }
