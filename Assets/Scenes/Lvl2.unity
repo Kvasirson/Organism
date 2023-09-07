@@ -606,7 +606,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.data[0].m_multiplier
-      value: 8
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -768,7 +768,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.data[0].m_multiplier
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

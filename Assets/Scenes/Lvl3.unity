@@ -350,7 +350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_value
-      value: 0.5
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_fillRenderer
@@ -362,7 +362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.data[0].m_multiplier
-      value: 3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.data[1].m_controller
@@ -370,7 +370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.data[1].m_multiplier
-      value: 6
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -618,7 +618,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.data[0].m_multiplier
-      value: 8
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -780,7 +780,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.data[0].m_multiplier
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
