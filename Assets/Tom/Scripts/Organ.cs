@@ -8,8 +8,6 @@ public class Organ : MonoBehaviour
     #region Variables
     GameManager _gameManager;
 
-    private Material _fillMaterial;
-
     #region Multipliers
     float _wheelUpAddValue;
     float _wheelDownAddValue;
@@ -34,10 +32,9 @@ public class Organ : MonoBehaviour
     private List<OrganController> m_controllers;
 
     [Header("Init")]
-
     [Tooltip("Pas touche les GD !")]
     [SerializeField]
-    private SpriteRenderer m_fillRenderer;
+    private GageTransition m_transitionScript;
 
     #endregion
 
@@ -46,9 +43,6 @@ public class Organ : MonoBehaviour
         _gameManager = GameManager.Instance;
 
         _gameManager.GetScores += CalculateScore;
-
-        _fillMaterial = m_fillRenderer.material;
-        _fillMaterial.SetFloat("_FillAmount", m_value);
 
         foreach (OrganController controller in m_controllers)
         {
@@ -142,7 +136,7 @@ public class Organ : MonoBehaviour
 
         LoseCheck();
 
-        _fillMaterial.SetFloat("_FillAmount", m_value);
+        m_transitionScript.SetFill(m_value);
     }
 
     private void OnWheelDown()
@@ -151,7 +145,7 @@ public class Organ : MonoBehaviour
 
         LoseCheck();
 
-        _fillMaterial.SetFloat("_FillAmount", m_value);
+        m_transitionScript.SetFill(m_value);
     }
 
     private void OnLeftThrusterUp()
@@ -160,7 +154,7 @@ public class Organ : MonoBehaviour
 
         LoseCheck();
 
-        _fillMaterial.SetFloat("_FillAmount", m_value);
+        m_transitionScript.SetFill(m_value);
     }
 
     private void OnLeftThrusterDown()
@@ -169,7 +163,7 @@ public class Organ : MonoBehaviour
 
         LoseCheck();
 
-        _fillMaterial.SetFloat("_FillAmount", m_value);
+        m_transitionScript.SetFill(m_value);
     }
 
     private void OnRightThrusterUp()
@@ -178,7 +172,7 @@ public class Organ : MonoBehaviour
 
         LoseCheck();
 
-        _fillMaterial.SetFloat("_FillAmount", m_value);
+        m_transitionScript.SetFill(m_value);
     }
 
     private void OnRightThrusterDown()
@@ -187,7 +181,7 @@ public class Organ : MonoBehaviour
 
         LoseCheck();
 
-        _fillMaterial.SetFloat("_FillAmount", m_value);
+        m_transitionScript.SetFill(m_value);
     }
 
     private void OnButtonU1()
@@ -196,7 +190,7 @@ public class Organ : MonoBehaviour
 
         LoseCheck();
 
-        _fillMaterial.SetFloat("_FillAmount", m_value);
+        m_transitionScript.SetFill(m_value);
     }
 
     private void OnButtonU2()
@@ -205,7 +199,7 @@ public class Organ : MonoBehaviour
 
         LoseCheck();
 
-        _fillMaterial.SetFloat("_FillAmount", m_value);
+        m_transitionScript.SetFill(m_value);
     }
 
     private void OnButtonU3()
@@ -214,7 +208,7 @@ public class Organ : MonoBehaviour
 
         LoseCheck();
 
-        _fillMaterial.SetFloat("_FillAmount", m_value);
+        m_transitionScript.SetFill(m_value);
     }
 
     private void OnButtonD1()
@@ -223,7 +217,7 @@ public class Organ : MonoBehaviour
 
         LoseCheck();
 
-        _fillMaterial.SetFloat("_FillAmount", m_value);
+        m_transitionScript.SetFill(m_value);
     }
 
     private void OnButtonD2()
@@ -232,7 +226,7 @@ public class Organ : MonoBehaviour
 
         LoseCheck();
 
-        _fillMaterial.SetFloat("_FillAmount", m_value);
+        m_transitionScript.SetFill(m_value);
     }
 
     private void OnDestroy()
