@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 
+
 public class ArcadeLetterSelection : MonoBehaviour
 {
     public TMP_Text displayText; // Reference to the TextMeshProUGUI component.
@@ -11,24 +12,48 @@ public class ArcadeLetterSelection : MonoBehaviour
     private int[] letterIndices = new int[3]; // Store the indices for each letter.
     private int selectedIndex = 0; // Index of the currently selected letter.
     private float lastMouseX; // Store the last mouse X position.
+    private int countletter = 0; // Count the number of letter selected
+
+    private SaveSystem saveSystem; // Reference to the SaveSystem script.
+    private GameManager gameManager; // Reference to the GameManager script.
+
 
     private void Start()
     {
         lastMouseX = Input.mousePosition.x;
         UpdateDisplayText();
+        saveSystem = FindObjectOfType<SaveSystem>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     private void Update()
     {
         // Handle letter selection with 'A' key.
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) & countletter < 3)
         {
             Debug.Log("A key pressed.");
             // Confirm the current letter.
             letterIndices[selectedIndex] = Mathf.Clamp(letterIndices[selectedIndex], 0, alphabet.Length - 1);
+            countletter++;
 
             // Move to the next letter for modification.
             selectedIndex = (selectedIndex + 1) % 3;
+            if (countletter == 3 && gameManager != null)
+            {
+                string playerName = displayText.text;
+
+                saveSystem.AddHighScore(playerName, gameManager.GetScore());
+
+                Debug.Log("HighScore updated A key");
+            } else 
+            {
+                string playerName = displayText.text;
+
+                saveSystem.AddHighScore(playerName,0);
+                
+                Debug.Log("HighScore updated letter selected");
+                
+            }
         }
 
         // Get the current mouse X position.
@@ -60,4 +85,5 @@ public class ArcadeLetterSelection : MonoBehaviour
         }
         displayText.text = selectedLetters;
     }
+
 }
