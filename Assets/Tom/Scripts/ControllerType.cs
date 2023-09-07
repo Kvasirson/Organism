@@ -4,9 +4,12 @@ using UnityEngine;
 
 public enum ControllerType
 {
-    Wheel,
-    LeftThruster,
-    RightThruster,
+    WheelUp,
+    WheelDown,
+    LeftThrusterUp,
+    LeftThrusterDown,
+    RightThrusterUp,
+    RightThrusterDown,
     ButtonU1,
     ButtonU2,
     ButtonU3,
