@@ -50,6 +50,12 @@ public class SaveSystem : MonoBehaviour
 
         PlayerPrefs.SetString("HighScores", json);
         PlayerPrefs.Save();
+        //debug.Log all the high scores
+        foreach (ScoreEntry scoreEntry in highScores)
+        {
+            Debug.Log(scoreEntry.playerName + " : " + scoreEntry.score);
+        }
+
     }
 
     private void LoadHighScores()

@@ -157,6 +157,11 @@ public class GameManager : MonoBehaviour
         EndGame();
     }
 
+    public int GetScore()
+    {
+        return _score;
+    }
+
     public void OnLose()
     {
         Debug.Log("You Lose");
