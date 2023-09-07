@@ -49,6 +49,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int m_scorePerOrgan;
 
+    [SerializeField]
+    private float m_gameTime;
+
     [Header("Controller values")]
 
     #region Controller values
@@ -130,14 +133,43 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
+    private void Start()
+    {
+        StartCoroutine(Timer());
+    }
+
+    IEnumerator Timer()
+    {
+        float curTimer = m_gameTime;
+
+        while(curTimer > 0)
+        {
+            curTimer -= Time.deltaTime;
+            Debug.Log("Time : " + curTimer);
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+
+        EndGame();
+    }
+
     public void OnLose()
     {
         Debug.Log("You Lose");
         _hasLost = true;
+        GetScores?.Invoke();
+        Debug.Log("Final score is : " + _score);
     }
 
     void OnLevelFinish()
     {
+        int prevScore = _score;
+        GetScores?.Invoke();
+        Debug.Log("Level score is : " + (_score - prevScore));
+    }
+
+    void EndGame()
+    {
+        _hasLost = true;
         GetScores?.Invoke();
         Debug.Log("Final score is : " + _score);
     }
