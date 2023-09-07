@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 
     private bool _hasLost = false;
 
+    private Coroutine _curTimer;
+
     private static GameManager _instance;
     public static GameManager Instance
     {
@@ -135,7 +137,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(Timer());
+        _curTimer = StartCoroutine(Timer());
     }
 
     IEnumerator Timer()
@@ -156,6 +158,10 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("You Lose");
         _hasLost = true;
+        if (_curTimer != null)
+        {
+            StopCoroutine(_curTimer);
+        }
         GetScores?.Invoke();
         Debug.Log("Final score is : " + _score);
     }
