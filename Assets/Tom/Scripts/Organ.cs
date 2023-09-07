@@ -139,7 +139,6 @@ public class Organ : MonoBehaviour
 
             return;
         }
-
     }
 
     private void OnWheelUp()
@@ -189,7 +188,7 @@ public class Organ : MonoBehaviour
 
     private void OnRightThrusterDown()
     {
-        m_value -= _rightThrusterDownAddValue;
+        m_value -= _rightThrusterDownAddValue * Time.deltaTime;
 
         LoseCheck();
 
