@@ -186,7 +186,7 @@ public class GameManager : MonoBehaviour
         int prevScore = _score;
         GetScores?.Invoke();
         Debug.Log("Level score is : " + (_score - prevScore));
-        LevelLoader.Instance.LoadNextLevel();
+        Transition.Instance.StartTransition();
     }
 
     public void EndGame()
