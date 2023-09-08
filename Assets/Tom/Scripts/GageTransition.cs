@@ -1,26 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class GageTransition : MonoBehaviour
 {
-    #region Variables
-    [Header("Init")]
     [SerializeField]
     private SpriteRenderer m_fillRenderer;
-
-    [SerializeField]
-    private SpriteRenderer m_backgroundRender;
-
-    [SerializeField]
-    private SpriteRenderer m_foreGroundRender;
-
-    [SerializeField]
-    private SpriteRenderer m_organRenderer;
-
-    [SerializeField]
-    private SortingGroup m_organSortingGroup;
 
     [Header("Fill")]
     [SerializeField]
@@ -42,85 +27,12 @@ public class GageTransition : MonoBehaviour
     [SerializeField]
     private Color m_highBubbleColor;
 
-    [Header("Highlight")]
-    [SerializeField]
-    private float m_highlightSpeed;
 
     private Material _fillMaterial;
-    private Material _backMaterial;
-    private Material _frontMaterial;
-
-    private Vector2 _startScale;
-    private Vector2 _organStartScale;
-    private bool _valueIsChanged;
-    private float _higlightProgress = 0f;
-    #endregion
-
-    private void Awake()
-    {
-        _startScale = transform.localScale;
-        _fillMaterial = m_fillRenderer.material;
-        _backMaterial = m_backgroundRender.material;
-        _frontMaterial = m_foreGroundRender.material;
-
-        _organStartScale = m_organRenderer.transform.localScale;
-    }
-
-    private void Update()
-    {
-        if (_valueIsChanged)
-        {
-            _valueIsChanged = false;
-
-            if (_higlightProgress >= 1)
-            {
-                return;
-            }
-
-            float curProgress = _higlightProgress + m_highlightSpeed * Time.deltaTime;
-            _higlightProgress = curProgress <= 1 ? curProgress : 1;
-            transform.localScale = Vector3.Lerp(_startScale, _startScale * 1.2f, _higlightProgress);
-            _fillMaterial.SetFloat("_Alpha", Mathf.Lerp(0.5f, 1f, curProgress));
-            Color fadeColor = Color.white;
-            fadeColor.a = Mathf.Lerp(0.5f, 1f, curProgress);
-            _backMaterial.color = fadeColor;
-            _frontMaterial.color = fadeColor;
-
-
-            if (curProgress > 0.25)
-            {
-                m_organSortingGroup.sortingLayerName = "Foreground";
-            }
-            m_organRenderer.transform.localScale = Vector3.Lerp(_organStartScale, _organStartScale * 1.2f, _higlightProgress);
-        }
-        else
-        {
-            if (_higlightProgress <= 0)
-            {
-                return;
-            }
-
-            float curProgress = _higlightProgress - m_highlightSpeed * Time.deltaTime;
-            _higlightProgress = curProgress >= 0 ? curProgress : 0;
-            transform.localScale = Vector3.Lerp(_startScale, _startScale * 1.2f, _higlightProgress);
-            _fillMaterial.SetFloat("_Alpha", Mathf.Lerp(0.5f, 1f, curProgress));
-            Color fadeColor = Color.white;
-            fadeColor.a = Mathf.Lerp(0.5f, 1f, curProgress);
-            _backMaterial.color = fadeColor;
-            _frontMaterial.color = fadeColor;
-
-            if(curProgress < 0.25)
-            {
-                m_organSortingGroup.sortingLayerName = "Game Elements";
-            }
-            m_organRenderer.transform.localScale = Vector3.Lerp(_organStartScale, _organStartScale * 1.2f, _higlightProgress);
-        }
-    }
 
     public void SetFill(float value)
     {
-        _valueIsChanged = true;
-        
+        _fillMaterial = m_fillRenderer.material;
         _fillMaterial.SetFloat("_FillAmount", value);
         
         if(value < 0.5f)
