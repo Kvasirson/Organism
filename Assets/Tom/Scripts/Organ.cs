@@ -35,14 +35,23 @@ public class Organ : MonoBehaviour
     [Tooltip("Pas touche les GD !")]
     [SerializeField]
     private GageTransition m_transitionScript;
+    [SerializeField]
+    GameObject m_gageVisuals;
 
     #endregion
 
     private void Start()
     {
+        if (m_controllers.Count == 0)
+        {
+            m_gageVisuals.SetActive(false);
+            return;
+        }
+
         _gameManager = GameManager.Instance;
 
         _gameManager.GetScores += CalculateScore;
+        m_transitionScript.SetFill(m_value);
 
         foreach (OrganController controller in m_controllers)
         {
@@ -51,56 +60,67 @@ public class Organ : MonoBehaviour
                 case ControllerType.WheelUp:
                     _gameManager.OnWheelUp += OnWheelUp;
                     _wheelUpAddValue = controller.Multiplier * _gameManager.WheelStepValue;
+                    ControllerPrompts.Instance.SetController(controller.Controller);
                     break;
 
                 case ControllerType.WheelDown:
                     _gameManager.OnWheelDown += OnWheelDown;
                     _wheelDownAddValue = controller.Multiplier * _gameManager.WheelStepValue;
+                    ControllerPrompts.Instance.SetController(controller.Controller);
                     break;
 
                 case ControllerType.LeftThrusterUp:
                     _gameManager.OnLeftThrusterUp += OnLeftThrusterUp;
                     _leftThrusterUpAddValue = controller.Multiplier * _gameManager.LeftThrusterStepValue;
+                    ControllerPrompts.Instance.SetController(controller.Controller);
                     break;
 
                 case ControllerType.LeftThrusterDown:
                     _gameManager.OnLeftThrusterDown += OnLeftThrusterDown;
                     _leftThrusterDownAddValue = controller.Multiplier * _gameManager.LeftThrusterStepValue;
+                    ControllerPrompts.Instance.SetController(controller.Controller);
                     break;
 
                 case ControllerType.RightThrusterUp:
                     _gameManager.OnRightThrusterUp += OnRightThrusterUp;
                     _rightThrusterUpAddValue = controller.Multiplier * _gameManager.RightThrusterStepValue;
+                    ControllerPrompts.Instance.SetController(controller.Controller);
                     break;
 
                 case ControllerType.RightThrusterDown:
                     _gameManager.OnRightThrusterDown += OnRightThrusterDown;
                     _rightThrusterDownAddValue = controller.Multiplier * _gameManager.RightThrusterStepValue;
+                    ControllerPrompts.Instance.SetController(controller.Controller);
                     break;
 
                 case ControllerType.ButtonU1:
                     _gameManager.OnU1Pressed += OnButtonU1;
                     _U1AddValue = controller.Multiplier * _gameManager.U1StepValue;
+                    ControllerPrompts.Instance.SetController(controller.Controller);
                     break;
 
                 case ControllerType.ButtonU2:
                     _gameManager.OnU2Pressed += OnButtonU2;
                     _U2AddValue = controller.Multiplier * _gameManager.U2StepValue;
+                    ControllerPrompts.Instance.SetController(controller.Controller);
                     break;
 
                 case ControllerType.ButtonU3:
                     _gameManager.OnU3Pressed += OnButtonU3;
                     _U3AddValue = controller.Multiplier * _gameManager.U3StepValue;
+                    ControllerPrompts.Instance.SetController(controller.Controller);
                     break;
 
                 case ControllerType.ButtonD1:
                     _gameManager.OnD1Pressed += OnButtonD1;
                     _D1AddValue = controller.Multiplier * _gameManager.D1StepValue;
+                    ControllerPrompts.Instance.SetController(controller.Controller);
                     break;
 
                 case ControllerType.ButtonD2:
                     _gameManager.OnD2Pressed += OnButtonD2;
                     _D2AddValue = controller.Multiplier * _gameManager.D2StepValue;
+                    ControllerPrompts.Instance.SetController(controller.Controller);
                     break;
             }
         }
@@ -231,6 +251,12 @@ public class Organ : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (m_controllers.Count == 0)
+        {
+            m_gageVisuals.SetActive(false);
+            return;
+        }
+
         foreach (OrganController controller in m_controllers)
         {
             switch (controller.Controller)
