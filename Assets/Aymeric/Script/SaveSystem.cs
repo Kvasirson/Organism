@@ -77,4 +77,9 @@ public class SaveSystem : MonoBehaviour
     {
         return highScores;
     }
+
+    public void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
 }

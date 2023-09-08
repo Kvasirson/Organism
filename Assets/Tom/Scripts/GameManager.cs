@@ -178,6 +178,9 @@ public class GameManager : MonoBehaviour
             StopCoroutine(_curTimer);
         }
         GetScores?.Invoke();
+        //Set active canvas GameOver
+        
+        
         Debug.Log("Final score is : " + _score);
     }
 
@@ -186,7 +189,7 @@ public class GameManager : MonoBehaviour
         int prevScore = _score;
         GetScores?.Invoke();
         Debug.Log("Level score is : " + (_score - prevScore));
-        LevelLoader.Instance.LoadNextLevel();
+        Transition.Instance.StartTransition();
     }
 
     public void EndGame()
