@@ -54,6 +54,7 @@ public class GageTransition : MonoBehaviour
     private Vector2 _organStartScale;
     private bool _valueIsChanged;
     private float _higlightProgress = 0f;
+    private bool _isButton;
     #endregion
 
     private void Awake()
@@ -77,7 +78,15 @@ public class GageTransition : MonoBehaviour
                 return;
             }
 
-            float curProgress = _higlightProgress + m_highlightSpeed * Time.deltaTime;
+            float curProgress;
+            if (_isButton)
+            {
+                curProgress = 1f;
+            }
+            else
+            {
+                curProgress = _higlightProgress + m_highlightSpeed * Time.deltaTime;
+            }
             _higlightProgress = curProgress <= 1 ? curProgress : 1;
             transform.localScale = Vector3.Lerp(_startScale, _startScale * 1.2f, _higlightProgress);
             _fillMaterial.SetFloat("_Alpha", Mathf.Lerp(0.5f, 1f, curProgress));
@@ -117,9 +126,10 @@ public class GageTransition : MonoBehaviour
         }
     }
 
-    public void SetFill(float value)
+    public void SetFill(float value, bool isButton)
     {
         _valueIsChanged = true;
+        _isButton = isButton;
         
         _fillMaterial.SetFloat("_FillAmount", value);
         

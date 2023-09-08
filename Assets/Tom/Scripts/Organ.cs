@@ -51,7 +51,7 @@ public class Organ : MonoBehaviour
         _gameManager = GameManager.Instance;
 
         _gameManager.GetScores += CalculateScore;
-        m_transitionScript.SetFill(m_value);
+        m_transitionScript.SetFill(m_value, false);
 
         foreach (OrganController controller in m_controllers)
         {
@@ -156,7 +156,7 @@ public class Organ : MonoBehaviour
 
         LoseCheck();
 
-        m_transitionScript.SetFill(m_value);
+        m_transitionScript.SetFill(m_value, false);
     }
 
     private void OnWheelDown()
@@ -165,7 +165,7 @@ public class Organ : MonoBehaviour
 
         LoseCheck();
 
-        m_transitionScript.SetFill(m_value);
+        m_transitionScript.SetFill(m_value, false);
     }
 
     private void OnLeftThrusterUp()
@@ -174,7 +174,7 @@ public class Organ : MonoBehaviour
 
         LoseCheck();
 
-        m_transitionScript.SetFill(m_value);
+        m_transitionScript.SetFill(m_value, false);
     }
 
     private void OnLeftThrusterDown()
@@ -183,7 +183,7 @@ public class Organ : MonoBehaviour
 
         LoseCheck();
 
-        m_transitionScript.SetFill(m_value);
+        m_transitionScript.SetFill(m_value, false);
     }
 
     private void OnRightThrusterUp()
@@ -192,7 +192,7 @@ public class Organ : MonoBehaviour
 
         LoseCheck();
 
-        m_transitionScript.SetFill(m_value);
+        m_transitionScript.SetFill(m_value, false);
     }
 
     private void OnRightThrusterDown()
@@ -201,7 +201,7 @@ public class Organ : MonoBehaviour
 
         LoseCheck();
 
-        m_transitionScript.SetFill(m_value);
+        m_transitionScript.SetFill(m_value, false);
     }
 
     private void OnButtonU1()
@@ -210,7 +210,7 @@ public class Organ : MonoBehaviour
 
         LoseCheck();
 
-        m_transitionScript.SetFill(m_value);
+        m_transitionScript.SetFill(m_value, true);
     }
 
     private void OnButtonU2()
@@ -219,7 +219,7 @@ public class Organ : MonoBehaviour
 
         LoseCheck();
 
-        m_transitionScript.SetFill(m_value);
+        m_transitionScript.SetFill(m_value, true);
     }
 
     private void OnButtonU3()
@@ -228,7 +228,7 @@ public class Organ : MonoBehaviour
 
         LoseCheck();
 
-        m_transitionScript.SetFill(m_value);
+        m_transitionScript.SetFill(m_value, true);
     }
 
     private void OnButtonD1()
@@ -237,7 +237,7 @@ public class Organ : MonoBehaviour
 
         LoseCheck();
 
-        m_transitionScript.SetFill(m_value);
+        m_transitionScript.SetFill(m_value, true);
     }
 
     private void OnButtonD2()
@@ -246,7 +246,7 @@ public class Organ : MonoBehaviour
 
         LoseCheck();
 
-        m_transitionScript.SetFill(m_value);
+        m_transitionScript.SetFill(m_value, true);
     }
 
     private void OnDestroy()
