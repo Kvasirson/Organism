@@ -42,7 +42,7 @@ public class ArcadeLetterSelection : MonoBehaviour
             {
                 string playerName = displayText.text;
 
-                saveSystem.AddHighScore(playerName, gameManager.GetScore());
+                saveSystem.AddHighScore(playerName, gameManager.Score);
 
                 Debug.Log("HighScore updated A key");
             } else 

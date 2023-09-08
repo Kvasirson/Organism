@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Proto.unity
     guid: cf42a3861a2bb104b93b720826c1c5df
+  - enabled: 1
+    path: Assets/Scenes/Finished/TrueFinished/LevelTrueFinished1.unity
+    guid: aabd2f802e4ff0e43ac9f2d2a3ffa324
   m_configObjects: {}
