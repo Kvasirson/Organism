@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     private Coroutine _curTimer;
 
+    [SerializeField]
     private static GameManager _instance;
     public static GameManager Instance
     {
@@ -144,7 +145,8 @@ public class GameManager : MonoBehaviour
     {
         if(_instance != null)
         {
-            Destroy(this);
+            Destroy(gameObject);
+            return;
         }
 
         _instance = this;

@@ -21,7 +21,8 @@ public class Transition : MonoBehaviour
     {
         if (_instance != null)
         {
-            Destroy(this);
+            Destroy(gameObject);
+            return;
         }
 
         _instance = this;

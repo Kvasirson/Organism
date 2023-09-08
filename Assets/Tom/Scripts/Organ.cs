@@ -253,7 +253,6 @@ public class Organ : MonoBehaviour
     {
         if (m_controllers.Count == 0)
         {
-            m_gageVisuals.SetActive(false);
             return;
         }
 
@@ -262,33 +261,27 @@ public class Organ : MonoBehaviour
             switch (controller.Controller)
             {
                 case ControllerType.WheelUp:
-                    _gameManager.OnWheelUp += OnWheelUp;
-                    _wheelUpAddValue = controller.Multiplier * _gameManager.WheelStepValue;
+                    _gameManager.OnWheelUp -= OnWheelUp;
                     break;
 
                 case ControllerType.WheelDown:
-                    _gameManager.OnWheelDown += OnWheelDown;
-                    _wheelDownAddValue = controller.Multiplier * _gameManager.WheelStepValue;
+                    _gameManager.OnWheelDown -= OnWheelDown;
                     break;
 
                 case ControllerType.LeftThrusterUp:
-                    _gameManager.OnLeftThrusterUp += OnLeftThrusterUp;
-                    _leftThrusterUpAddValue = controller.Multiplier * _gameManager.LeftThrusterStepValue;
+                    _gameManager.OnLeftThrusterUp -= OnLeftThrusterUp;
                     break;
 
                 case ControllerType.LeftThrusterDown:
-                    _gameManager.OnLeftThrusterDown += OnLeftThrusterDown;
-                    _leftThrusterDownAddValue = controller.Multiplier * _gameManager.LeftThrusterStepValue;
+                    _gameManager.OnLeftThrusterDown -= OnLeftThrusterDown;
                     break;
 
                 case ControllerType.RightThrusterUp:
-                    _gameManager.OnRightThrusterUp += OnRightThrusterUp;
-                    _rightThrusterUpAddValue = controller.Multiplier * _gameManager.RightThrusterStepValue;
+                    _gameManager.OnRightThrusterUp -= OnRightThrusterUp;
                     break;
 
                 case ControllerType.RightThrusterDown:
-                    _gameManager.OnRightThrusterDown += OnRightThrusterDown;
-                    _rightThrusterDownAddValue = controller.Multiplier * _gameManager.RightThrusterStepValue;
+                    _gameManager.OnRightThrusterDown -= OnRightThrusterDown;
                     break;
 
                 case ControllerType.ButtonU1:

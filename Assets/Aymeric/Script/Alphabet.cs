@@ -30,7 +30,7 @@ public class ArcadeLetterSelection : MonoBehaviour
     {
         
 
-        if (countletter < 3 && Input.GetKeyDown(KeyCode.Q))
+        if (countletter < 3 && Input.GetKeyDown(KeyCode.D))
         {
             Debug.Log("A key pressed.");
             // Confirm the current letter.
@@ -41,25 +41,24 @@ public class ArcadeLetterSelection : MonoBehaviour
             selectedIndex = (selectedIndex + 1) % 3;
             if (countletter == 3 && gameManager != null)
             {
+                Debug.Log("a");
                 string playerName = displayText.text;
 
                 saveSystem.AddHighScore(playerName, gameManager.Score);
 
                 Debug.Log("HighScore updated A key");
-                gameObject.SetActive(false);
-                //Load first scene
-                SceneManager.LoadScene(0);
+                LevelLoader.Instance.LoadMenu();
             }
 
             else if (countletter == 3 && gameManager == null)
             {
+                Debug.Log("b");
                 string playerName = displayText.text;
 
                 saveSystem.AddHighScore(playerName, 0);
 
                 Debug.Log("HighScore updated A key");
-                gameObject.SetActive(false);
-                SceneManager.LoadScene(0);
+                LevelLoader.Instance.LoadMenu();
             }
             
         }

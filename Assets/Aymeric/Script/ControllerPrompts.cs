@@ -42,7 +42,8 @@ public class ControllerPrompts : MonoBehaviour
     {
         if (_instance != null)
         {
-            Destroy(this);
+            Destroy(gameObject);
+            return;
         }
 
         _instance = this;
@@ -54,7 +55,6 @@ public class ControllerPrompts : MonoBehaviour
         {
             case ControllerType.WheelUp:
                 {
-                    Debug.Log("ff");
                     m_wheel.color = Color.white;
                     break;
                 }

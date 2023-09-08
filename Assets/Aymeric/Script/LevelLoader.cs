@@ -15,7 +15,8 @@ public class LevelLoader : MonoBehaviour
     {
         if (_instance != null)
         {
-            Destroy(this);
+            Destroy(gameObject);
+            return;
         }
 
         _instance = this;
@@ -25,21 +26,16 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadMenu()
     {
-        SceneManager.LoadScene(0);
         if (GameManager.Instance != null)
         {
-            Destroy(GameManager.Instance);
+            Destroy(GameManager.Instance.gameObject);
         }
-    }
-
-    public void LoadScoreBoard()
-    {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     public void LoadFirstLevel()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 
     public void LoadNextLevel()
