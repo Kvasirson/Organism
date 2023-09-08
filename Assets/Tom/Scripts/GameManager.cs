@@ -178,6 +178,9 @@ public class GameManager : MonoBehaviour
             StopCoroutine(_curTimer);
         }
         GetScores?.Invoke();
+        //Set active canvas GameOver
+        
+        
         Debug.Log("Final score is : " + _score);
     }
 
