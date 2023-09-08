@@ -20,7 +20,7 @@ public class TextMeshProBlink : MonoBehaviour
         float originalSize = textMeshProComponent.fontSize;
         float endSize = originalSize * 0.7f;
         Color startColor = textMeshProComponent.color;
-        Color endColor = new Color(startColor.r, startColor.g, startColor.b, 0); 
+        Color endColor = new Color(startColor.r, startColor.g, startColor.b, 0.5f); 
 
         while (Time.time - startTime < fadeDuration)
         {
@@ -32,7 +32,7 @@ public class TextMeshProBlink : MonoBehaviour
         }
 
         // Wait for a moment after the text becomes completely invisible before making it reappear.
-        yield return new WaitForSeconds(0.5f); // Wait for 1 second before reappearing.
+        yield return new WaitForSeconds(0); // Wait for 1 second before reappearing.
 
         // Fade-in the text.
         startTime = Time.time;
