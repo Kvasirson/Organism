@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 
 public class ArcadeLetterSelection : MonoBehaviour
 {
@@ -28,6 +28,7 @@ public class ArcadeLetterSelection : MonoBehaviour
 
     private void Update()
     {
+        
 
         if (countletter < 3 && Input.GetKeyDown(KeyCode.Q))
         {
@@ -46,8 +47,10 @@ public class ArcadeLetterSelection : MonoBehaviour
 
                 Debug.Log("HighScore updated A key");
                 gameObject.SetActive(false);
+                //Load first scene
+                SceneManager.LoadScene(0);
             }
-            
+
             else if (countletter == 3 && gameManager == null)
             {
                 string playerName = displayText.text;
@@ -56,6 +59,7 @@ public class ArcadeLetterSelection : MonoBehaviour
 
                 Debug.Log("HighScore updated A key");
                 gameObject.SetActive(false);
+                SceneManager.LoadScene(0);
             }
             
         }
