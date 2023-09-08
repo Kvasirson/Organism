@@ -175,7 +175,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 741813185
   m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_SortAtRoot: 0
 --- !u!114 &3124513244051357504
 MonoBehaviour:
@@ -190,12 +190,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fillRenderer: {fileID: 2685038477886822446}
+  m_backgroundRender: {fileID: 3120981163128007999}
+  m_foreGroundRender: {fileID: 1614111228763772019}
+  m_organRenderer: {fileID: 4516395878699589543}
+  m_organSortingGroup: {fileID: 4839623436451880197}
   m_lowFillColor: {r: 0.539231, g: 0.94337875, b: 0.9622642, a: 1}
   m_midFillColor: {r: 0.6158326, g: 1, b: 0.57924527, a: 1}
   m_highFillColor: {r: 1, g: 0.5035887, b: 0.390566, a: 1}
   m_lowBubbleColor: {r: 0.6230645, g: 0.3339622, b: 1, a: 1}
   m_midBubbleColor: {r: 0.52705586, g: 0.9704134, b: 0.990566, a: 1}
   m_highBubbleColor: {r: 1, g: 0.5361635, b: 0.22075468, a: 1}
+  m_highlightSpeed: 5
 --- !u!1 &3249083925571381761
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,6 +421,7 @@ MonoBehaviour:
   - m_controller: 1
     m_multiplier: 0.5
   m_transitionScript: {fileID: 3124513244051357504}
+  m_gageVisuals: {fileID: 1195136243102948488}
 --- !u!1 &6759169233515385847
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,6 +465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6896090997302461599}
   - component: {fileID: 4516395878699589543}
+  - component: {fileID: 6030175515837471435}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -533,3 +540,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6030175515837471435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7023611072974599875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db7792ff0bf9aef498d06740e9e0be9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_spriteList: []
+  m_renderer: {fileID: 4516395878699589543}

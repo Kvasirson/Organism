@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -124,6 +124,13 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    [Header("Init")]
+    [SerializeField]
+    private TMP_Text m_scoreText;
+
+    [SerializeField]
+    private TMP_Text m_timerText;
+
     #endregion
 
     private void Awake()
@@ -141,6 +148,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _curTimer = StartCoroutine(Timer());
+        m_scoreText.text = "Score : 000000";
     }
 
     IEnumerator Timer()
@@ -150,7 +158,7 @@ public class GameManager : MonoBehaviour
         while(curTimer > 0)
         {
             curTimer -= Time.deltaTime;
-            //Debug.Log("Time : " + curTimer);
+            m_timerText.text = "Time : " + Mathf.RoundToInt(curTimer);
             yield return new WaitForSeconds(Time.deltaTime);
         }
 
@@ -196,6 +204,19 @@ public class GameManager : MonoBehaviour
     public void AddScore(float value)
     {
         _score += Mathf.RoundToInt(m_scoreCurve.Evaluate(value) * m_scorePerOrgan);
+
+        string scoreString = _score.ToString();
+        if (scoreString.Length < 6)
+        {
+            int addNb = 6 - scoreString.Length;
+
+            for(int i = 0; i < addNb; i++)
+            {
+                scoreString = "0" + scoreString;
+            }
+        }
+
+        m_scoreText.text = "Score : " + scoreString;
     }
 
     public void Update()
