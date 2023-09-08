@@ -1763,6 +1763,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1614111228763772019, guid: 48e7805eac7563640a84ccd567e88545, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3124513244051357504, guid: 48e7805eac7563640a84ccd567e88545, type: 3}
       propertyPath: m_highlightSpeed
       value: 10

@@ -15,7 +15,11 @@ public class GameManager : MonoBehaviour
     }
 
     private int _score;
-
+    public int Score
+    {
+        get => _score;
+    }
+    
     private bool _hasLost = false;
 
     private Coroutine _curTimer;
@@ -163,11 +167,6 @@ public class GameManager : MonoBehaviour
         }
 
         EndGame();
-    }
-
-    public int GetScore()
-    {
-        return _score;
     }
 
     public void OnLose()

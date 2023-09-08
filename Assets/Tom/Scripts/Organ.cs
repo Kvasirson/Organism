@@ -240,6 +240,12 @@ public class Organ : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (m_controllers.Count == 0)
+        {
+            m_gageVisuals.SetActive(false);
+            return;
+        }
+
         foreach (OrganController controller in m_controllers)
         {
             switch (controller.Controller)
