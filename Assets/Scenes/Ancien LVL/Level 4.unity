@@ -622,6 +622,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_scorePerOrgan: 0
+  m_scoreCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   m_gameTime: 120
   m_wheelStepValue: 1
   m_leftThrusterStepValue: 1
@@ -632,6 +638,8 @@ MonoBehaviour:
   m_D1SteppValue: 0.1
   m_D2SteppValue: 0.1
   m_D3SteppValue: 0.1
+  m_scoreText: {fileID: 0}
+  m_timerText: {fileID: 0}
 --- !u!114 &1592744736
 MonoBehaviour:
   m_ObjectHideFlags: 0
