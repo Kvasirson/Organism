@@ -549,8 +549,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Score
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 213ff8d6fcf7b5f49b18e862f56b30b9, type: 2}
-  m_sharedMaterial: {fileID: -2937695675605302050, guid: 213ff8d6fcf7b5f49b18e862f56b30b9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 03d23a4f96325de47a9786ba0fba96b1, type: 2}
+  m_sharedMaterial: {fileID: 7566428759845817994, guid: 03d23a4f96325de47a9786ba0fba96b1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -682,12 +682,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Press The Big Button to Play!
-
-'
+  m_text: Press Any Button To Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 213ff8d6fcf7b5f49b18e862f56b30b9, type: 2}
-  m_sharedMaterial: {fileID: -2937695675605302050, guid: 213ff8d6fcf7b5f49b18e862f56b30b9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 03d23a4f96325de47a9786ba0fba96b1, type: 2}
+  m_sharedMaterial: {fileID: 7566428759845817994, guid: 03d23a4f96325de47a9786ba0fba96b1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -954,7 +952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d781443d98fd1ea4aaab8c960dc382d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 10
+  moveDistance: 5
   moveSpeed: 2
 --- !u!1 &1920528432
 GameObject:

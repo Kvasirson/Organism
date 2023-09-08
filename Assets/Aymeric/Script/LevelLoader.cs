@@ -58,4 +58,16 @@ public class LevelLoader : MonoBehaviour
             }
         }
     }
+
+    //if any key pressed on the mainMenu, load the first level
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            if (Input.anyKeyDown)
+            {
+                LoadFirstLevel();
+            }
+        }
+    }
 }
