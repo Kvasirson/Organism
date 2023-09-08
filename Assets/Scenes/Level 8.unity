@@ -177,19 +177,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_value
-      value: 0.5
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.size
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.data[0].m_controller
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.data[0].m_multiplier
-      value: 0.5
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
+      propertyPath: m_controllers.Array.data[1].m_multiplier
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4189206700180742704, guid: 02305f95c5588ae4fa0a4f82f2454611, type: 3}
       propertyPath: m_controllers.Array.data[2].m_controller
@@ -622,6 +626,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_scorePerOrgan: 0
+  m_scoreCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   m_gameTime: 120
   m_wheelStepValue: 1
   m_leftThrusterStepValue: 1
