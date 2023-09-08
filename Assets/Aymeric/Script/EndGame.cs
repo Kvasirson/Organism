@@ -5,10 +5,11 @@ using UnityEngine;
 public class EndGame : MonoBehaviour
 {
     public Canvas Score;
-    private void update()
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.D))
         {
+            Debug.Log("Q");
             Score.gameObject.SetActive(true);
             gameObject.SetActive(false);
 
