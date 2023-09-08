@@ -35,14 +35,23 @@ public class Organ : MonoBehaviour
     [Tooltip("Pas touche les GD !")]
     [SerializeField]
     private GageTransition m_transitionScript;
+    [SerializeField]
+    GameObject m_gageVisuals;
 
     #endregion
 
     private void Start()
     {
+        if (m_controllers.Count == 0)
+        {
+            m_gageVisuals.SetActive(false);
+            return;
+        }
+
         _gameManager = GameManager.Instance;
 
         _gameManager.GetScores += CalculateScore;
+        m_transitionScript.SetFill(m_value);
 
         foreach (OrganController controller in m_controllers)
         {
@@ -231,6 +240,12 @@ public class Organ : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (m_controllers.Count == 0)
+        {
+            m_gageVisuals.SetActive(false);
+            return;
+        }
+
         foreach (OrganController controller in m_controllers)
         {
             switch (controller.Controller)
