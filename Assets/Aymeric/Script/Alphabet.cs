@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 
 public class ArcadeLetterSelection : MonoBehaviour
 {
@@ -28,8 +28,9 @@ public class ArcadeLetterSelection : MonoBehaviour
 
     private void Update()
     {
-        // Handle letter selection with 'A' key.
-        if (Input.GetKeyDown(KeyCode.A) & countletter < 3)
+        
+
+        if (countletter < 3 && Input.GetKeyDown(KeyCode.Q))
         {
             Debug.Log("A key pressed.");
             // Confirm the current letter.
@@ -45,15 +46,22 @@ public class ArcadeLetterSelection : MonoBehaviour
                 saveSystem.AddHighScore(playerName, gameManager.Score);
 
                 Debug.Log("HighScore updated A key");
-            } else 
+                gameObject.SetActive(false);
+                //Load first scene
+                SceneManager.LoadScene(0);
+            }
+
+            else if (countletter == 3 && gameManager == null)
             {
                 string playerName = displayText.text;
 
-                saveSystem.AddHighScore(playerName,0);
-                
-                Debug.Log("HighScore updated letter selected");
-                
+                saveSystem.AddHighScore(playerName, 0);
+
+                Debug.Log("HighScore updated A key");
+                gameObject.SetActive(false);
+                SceneManager.LoadScene(0);
             }
+            
         }
 
         // Get the current mouse X position.

@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     #region Variables
 
+    public Canvas endgame;
+
     private PlayerActions _playerActions;
     public ref PlayerActions PlayerActions
     {
@@ -137,6 +139,7 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+
     private void Awake()
     {
         if(_instance != null)
@@ -178,6 +181,9 @@ public class GameManager : MonoBehaviour
             StopCoroutine(_curTimer);
         }
         GetScores?.Invoke();
+        //Set active canvas GameOver
+        endgame.gameObject.SetActive(true);
+
         Debug.Log("Final score is : " + _score);
     }
 
@@ -198,6 +204,7 @@ public class GameManager : MonoBehaviour
         }
         GetScores?.Invoke();
         Debug.Log("Final score is : " + _score);
+        endgame.gameObject.SetActive(true);
     }
 
     public void AddScore(float value)

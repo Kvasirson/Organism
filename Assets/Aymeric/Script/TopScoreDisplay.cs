@@ -26,8 +26,13 @@ public class TopScoreDisplayTMP : MonoBehaviour
         // Check if there are any high scores
         if (highScores.Count > 0)
         {
-            // Display the top score
-            topScoreText.text = "Top Score: " + highScores[0].score.ToString();
+            //Display all the scores
+            string topScoreString = "Top Scores:\n \n";
+            foreach (var score in highScores)
+            {
+                topScoreString += score + "\n";
+            }
+            topScoreText.text = topScoreString;
         }
         else
         {
